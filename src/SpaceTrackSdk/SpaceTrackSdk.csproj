@@ -5,6 +5,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.0.1</Version>
+        <PackageProjectUrl>https://github.com/hughesjs/SpaceTrackSdk</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/hughesjs/SpaceTrackSdk/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/hughesjs/SpaceTrackSdk.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Internal" />
+      <Folder Include="Public" />
+    </ItemGroup>
 
 </Project>

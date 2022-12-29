@@ -1,4 +1,4 @@
-namespace Placeholder.Tests;
+namespace SpaceTrackSdk.Tests;
 
 public class UnitTest1
 {

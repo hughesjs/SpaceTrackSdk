@@ -1,5 +1,6 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hughesjs/SpaceTrackSdk/dotnet-ci.yml?label=BUILD%20CI&style=for-the-badge&branch=master)](https://github.com/hughesjs/SpaceTrackSdk/actions)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hughesjs/SpaceTrackSdk/dotnet-cd.yml?label=BUILD%20CD&style=for-the-badge&branch=master)](https://github.com/hughesjs/SpaceTrackSdk/actions)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/SpaceTrackSdk?style=for-the-badge)](https://nuget.org/packages/PGFPlots.NET/)
 ![GitHub top language](https://img.shields.io/github/languages/top/hughesjs/SpaceTrackSdk?style=for-the-badge)
 [![GitHub](https://img.shields.io/github/license/hughesjs/SpaceTrackSdk?style=for-the-badge)](LICENSE)
 ![FTB](https://raw.githubusercontent.com/hughesjs/custom-badges/master/made-in/made-in-scotland.svg)

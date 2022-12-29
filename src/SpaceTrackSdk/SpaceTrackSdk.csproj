@@ -12,10 +12,9 @@
         <RepositoryUrl>https://github.com/hughesjs/SpaceTrackSdk.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <Folder Include="Internal" />
-      <Folder Include="Public" />
+        <InternalsVisibleTo Include="SpaceTrackSdk.Tests"/>
     </ItemGroup>
 
 </Project>

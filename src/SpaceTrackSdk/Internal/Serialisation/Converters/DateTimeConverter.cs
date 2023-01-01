@@ -53,7 +53,7 @@ internal abstract class DateTimeConverter
 		}
 	}
 	
-	internal abstract class Complex
+	internal abstract class Precise
 	{
 		private const string ComplexDateTimeFormat = "yyyy-MM-dd H:mm:ss.FFFFFF";
 	

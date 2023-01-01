@@ -63,7 +63,7 @@ public record Conjunction
 	public uint? Satellite2Id { get; init; }
 	
 	[JsonPropertyName("CREATED")]
-	[JsonConverter(typeof(DateTimeConverter.Complex.NullableConverter))]
+	[JsonConverter(typeof(DateTimeConverter.Precise.NullableConverter))]
 	public DateTime? Created { get; init; }
 
 }

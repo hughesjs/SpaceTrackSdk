@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using SpaceTrackSdk.Internal.Attributes;
 using SpaceTrackSdk.Internal.Serialisation.Converters;
 using SpaceTrackSdk.Public.DataModels.Enums;
 
@@ -14,6 +15,7 @@ public class Decay
 
 	[JsonPropertyName("PRECEDENCE")]
 	[JsonConverter(typeof(JsonStringEnumConverter))]
+	[ModelDefinitionTypeOverride(typeof(Precendence))]
 	public required Precendence Precedence { get; init; }
 	
 	[JsonPropertyName("COUNTRY")]
@@ -37,11 +39,11 @@ public class Decay
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? NoradCatId { get; init; }
+	public uint? NoradCatId { get; init; }
 
 	[JsonPropertyName("OBJECT_NUMBER")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? ObjectNumber { get; init; }
+	public uint? ObjectNumber { get; init; }
 
 	[JsonPropertyName("MSG_EPOCH")]
 	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
@@ -49,6 +51,7 @@ public class Decay
 
 	[JsonPropertyName("DECAY_EPOCH")]
 	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
+	[ModelDefinitionTypeOverride(typeof(DateTime?))]
 	public DateTime? DecayEpoch { get; init; }
 
 }

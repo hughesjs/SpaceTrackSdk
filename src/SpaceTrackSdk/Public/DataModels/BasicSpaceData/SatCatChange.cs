@@ -32,16 +32,16 @@ public record SatCatChange
 	public uint? ObjectNumber { get; init; }
 
 	[JsonPropertyName("CURRENT_LAUNCH")]
-	public DateTime? CurrentLaunch { get; init; }
+	public DateOnly? CurrentLaunch { get; init; }
 
 	[JsonPropertyName("PREVIOUS_LAUNCH")]
-	public DateTime? PreviousLaunch { get; init; }
+	public DateOnly? PreviousLaunch { get; init; }
 
 	[JsonPropertyName("CURRENT_DECAY")]
-	public DateTime? CurrentDecay { get; init; }
+	public DateOnly? CurrentDecay { get; init; }
 
 	[JsonPropertyName("PREVIOUS_DECAY")]
-	public DateTime? PreviousDecay { get; init; }
+	public DateOnly? PreviousDecay { get; init; }
 
 	[JsonPropertyName("CHANGE_MADE")]
 	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]

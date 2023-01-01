@@ -25,6 +25,115 @@ public class DecaySerialisationTests: SerialisationTestBase<Decay>
 										}
 										""";
 
+	protected override string ModelDef => """
+										[
+										    {
+										        "Field": "NORAD_CAT_ID",
+										        "Type": "int(11) unsigned",
+										        "Null": "YES",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "OBJECT_NUMBER",
+										        "Type": "int(11) unsigned",
+										        "Null": "YES",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "OBJECT_NAME",
+										        "Type": "char(25)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "INTLDES",
+										        "Type": "char(12)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "OBJECT_ID",
+										        "Type": "char(12)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "RCS",
+										        "Type": "int(1)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "0",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "RCS_SIZE",
+										        "Type": "varchar(6)",
+										        "Null": "YES",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "COUNTRY",
+										        "Type": "char(6)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "MSG_EPOCH",
+										        "Type": "datetime",
+										        "Null": "YES",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "DECAY_EPOCH",
+										        "Type": "varchar(24)",
+										        "Null": "YES",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "SOURCE",
+										        "Type": "varchar(9)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "MSG_TYPE",
+										        "Type": "varchar(10)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "PRECEDENCE",
+										        "Type": "bigint(20)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "0",
+										        "Extra": ""
+										    }
+										]
+										""";
+
 	protected override Decay DataObject => new()
 	{
 		NoradCatId = 1,

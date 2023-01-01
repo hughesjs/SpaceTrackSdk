@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using SpaceTrackSdk.Internal.Serialisation.Converters;
+using SpaceTrackSdk.Public.DataModels.Enums;
 
 namespace SpaceTrackSdk.Public.DataModels.BasicSpaceData;
 
@@ -19,14 +20,13 @@ public record TrackingAndImpactPrediction
 
 	[JsonPropertyName("WINDOW")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public required ushort Window { get; init; }
+	public required uint Window { get; init; }
 
 	[JsonPropertyName("REV")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public required ushort Revolutions { get; init; }
+	public required uint Revolutions { get; init; }
 
-	[JsonPropertyName("DIRECTION")]
-	public required string Direction { get; init; }
+
 
 	[JsonPropertyName("LAT")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
@@ -42,21 +42,25 @@ public record TrackingAndImpactPrediction
 
 	[JsonPropertyName("NEXT_REPORT")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public required ushort NextReport { get; init; }
+	public required uint NextReport { get; init; }
 
 	[JsonPropertyName("ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public required int Id { get; init; }
+	public required uint Id { get; init; }
 
 	[JsonPropertyName("HIGH_INTEREST")]
-	[JsonConverter(typeof(YesNoBoolConverter.NotNullableConverter))]
-	public required bool IsHighInterest { get; init; }
+	[JsonConverter(typeof(YesNoBoolConverter.NullableConverter))]
+	public bool? IsHighInterest { get; init; }
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? NoradCatId { get; init; }
+	public uint? NoradCatId { get; init; }
 
 	[JsonPropertyName("OBJECT_NUMBER")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? ObjectNumber { get; init; }
+	public uint? ObjectNumber { get; init; }
+	
+	[JsonPropertyName("DIRECTION")]
+	[JsonConverter(typeof(JsonStringEnumConverter))]
+	public Direction? Direction { get; init; }
 }

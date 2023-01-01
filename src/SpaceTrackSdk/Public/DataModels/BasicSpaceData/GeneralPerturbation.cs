@@ -34,15 +34,20 @@ public record GeneralPerturbation
 
     [JsonPropertyName("MEAN_ELEMENT_THEORY")]
     public required string MeanElementTheory { get; init; }
-    
-    [JsonPropertyName("EPHEMERIS_TYPE")]
-    public required string EphemerisType { get; init; }
-
-    [JsonPropertyName("CLASSIFICATION_TYPE")]
-    public required string ClassificationType { get; init; }
-    
+  
     [JsonPropertyName("OBJECT_TYPE")]
     public required string ObjectType { get; init; }
+    
+    [JsonPropertyName("NORAD_CAT_ID")]
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+    public required uint NoradCatalogId { get; init; }
+    
+	[JsonPropertyName("EPHEMERIS_TYPE")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+    public short? EphemerisType { get; init; }
+    
+    [JsonPropertyName("CLASSIFICATION_TYPE")]
+    public char? ClassificationType { get; init; }
     
     [JsonPropertyName("CREATION_DATE")]
     public DateTime? CreationDate { get; init; }
@@ -74,17 +79,13 @@ public record GeneralPerturbation
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
     public decimal? MeanAnomaly { get; init; }
 
-    [JsonPropertyName("NORAD_CAT_ID")]
-    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public int? NoradCatalogId { get; init; }
-
     [JsonPropertyName("ELEMENT_SET_NO")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public int? ElementSetNumber { get; init; }
+    public ushort? ElementSetNumber { get; init; }
 
     [JsonPropertyName("REV_AT_EPOCH")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public int? RevolutionsAtEpoch { get; init; }
+    public uint? RevolutionsAtEpoch { get; init; }
 
     [JsonPropertyName("BSTAR")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
@@ -100,28 +101,20 @@ public record GeneralPerturbation
 
     [JsonPropertyName("SEMIMAJOR_AXIS")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? SemiMajorAxis { get; init; }
+    public double? SemiMajorAxis { get; init; }
 
     [JsonPropertyName("PERIOD")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? Period { get; init; }
+    public double? Period { get; init; }
 
     [JsonPropertyName("APOAPSIS")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? Apoapsis { get; init; }
+    public double? Apoapsis { get; init; }
 
     [JsonPropertyName("PERIAPSIS")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? Periapsis { get; init; }
+    public double? Periapsis { get; init; }
 
-    [JsonPropertyName("R_MIN")]
-    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? RadiusMin { get; init; }
-
-    [JsonPropertyName("R_P")]
-    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? RadiusPerigee { get; init; }
-    
     [JsonPropertyName("RCS_SIZE")]
     public string? RadarCrossSectionSize { get; init; }
     
@@ -129,17 +122,17 @@ public record GeneralPerturbation
     public string? CountryCode { get; init; }
     
     [JsonPropertyName("LAUNCH_DATE")]
-    public DateTime? LaunchDate { get; init; }
+    public DateOnly? LaunchDate { get; init; }
     
     [JsonPropertyName("SITE")]
     public string? Site { get; init; }
     
     [JsonPropertyName("DECAY_DATE")]
-    public DateTime? DecayDate { get; init; }
+    public DateOnly? DecayDate { get; init; }
 
     [JsonPropertyName("FILE")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public ulong? File { get; init; }
+	public ulong? FileNumber { get; init; }
 
 	[JsonPropertyName("TLE_LINE0")]
 	public string? TwoLineElementLine0 { get; init; }

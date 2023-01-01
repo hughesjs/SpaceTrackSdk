@@ -16,6 +16,43 @@ public class AnnouncementSerialisationTests: SerialisationTestBase<Announcement>
 									}
 									""";
 
+	protected override string ModelDef => """
+										[
+										    {
+										        "Field": "announcement_type",
+										        "Type": "varchar(45)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "announcement_text",
+										        "Type": "varchar(500)",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": null,
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "announcement_start",
+										        "Type": "datetime",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "0001-01-01 00:00:00",
+										        "Extra": ""
+										    },
+										    {
+										        "Field": "announcement_end",
+										        "Type": "datetime",
+										        "Null": "NO",
+										        "Key": "",
+										        "Default": "0001-01-01 00:00:00",
+										        "Extra": ""
+										    }
+										]
+										""";
+
 	protected override Announcement DataObject => new()
 	{
 		Type = "NEW FEATURE",

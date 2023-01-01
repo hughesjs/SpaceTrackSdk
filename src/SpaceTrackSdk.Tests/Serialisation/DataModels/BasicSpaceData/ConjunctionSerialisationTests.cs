@@ -26,6 +26,140 @@ public class ConjunctionSerialisationTests: SerialisationTestBase<Conjunction>
 										    "SAT_2_EXCL_VOL": "5.00"
 										}
 										""";
+
+	protected override string ModelDef => """
+											[
+											    {
+											        "Field": "CDM_ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CREATED",
+											        "Type": "datetime(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "EMERGENCY_REPORTABLE",
+											        "Type": "char(1)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "TCA",
+											        "Type": "datetime(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "MIN_RNG",
+											        "Type": "double",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PC",
+											        "Type": "double",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_1_ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_1_NAME",
+											        "Type": "varchar(25)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT1_OBJECT_TYPE",
+											        "Type": "varchar(25)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT1_RCS",
+											        "Type": "varchar(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_1_EXCL_VOL",
+											        "Type": "varchar(62)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_2_ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_2_NAME",
+											        "Type": "varchar(25)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT2_OBJECT_TYPE",
+											        "Type": "varchar(25)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT2_RCS",
+											        "Type": "varchar(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SAT_2_EXCL_VOL",
+											        "Type": "varchar(62)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    }
+											]
+											""";
+
 	protected override Conjunction DataObject => new()
 	{
 		CdmId = 392735348,

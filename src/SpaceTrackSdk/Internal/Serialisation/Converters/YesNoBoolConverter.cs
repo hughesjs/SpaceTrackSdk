@@ -5,7 +5,7 @@ namespace SpaceTrackSdk.Internal.Serialisation.Converters;
 
 internal class YesNoBoolConverter
 {
-	private static bool IsTrue(char c) => c is 'y' or 'Y';
+	private static bool IsTrue(string c) => c is "y" or "Y" or "Yes" or "yes" or "YES";
 
 	internal class NullableConverter: JsonConverter<bool?>
 	{
@@ -13,7 +13,7 @@ internal class YesNoBoolConverter
 		{
 			if (reader.TokenType is JsonTokenType.Null) return null;
 			string c = reader.GetString()!;
-			return c.Length == 1 && IsTrue(c[0]);
+			return IsTrue(c);
 		}
 
 		public override void Write(Utf8JsonWriter writer, bool? value, JsonSerializerOptions options)
@@ -33,7 +33,7 @@ internal class YesNoBoolConverter
 		public override bool Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			string c = reader.GetString()!;
-			return c.Length == 1 && IsTrue(c[0]);
+			return IsTrue(c);
 		}
 
 		public override void Write(Utf8JsonWriter writer, bool value, JsonSerializerOptions options)

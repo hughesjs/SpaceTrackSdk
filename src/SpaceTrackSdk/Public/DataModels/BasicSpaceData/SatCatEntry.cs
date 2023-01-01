@@ -55,13 +55,13 @@ public record SatCatEntry
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? NoradCatalogId { get; init; }
+	public uint? NoradCatalogId { get; init; }
 
 	[JsonPropertyName("LAUNCH")]
-	public DateTime? LaunchDate { get; init; }
+	public DateOnly? LaunchDate { get; init; }
 
 	[JsonPropertyName("DECAY")]
-	public DateTime? DecayDate { get; init; }
+	public DateOnly? DecayDate { get; init; }
 
 	[JsonPropertyName("PERIOD")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
@@ -84,7 +84,8 @@ public record SatCatEntry
 	public uint? ObjectNumber { get; init; }
 
 	[JsonPropertyName("COMMENTCODE")]
-	public char? CommentCode { get; init; }
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	public ushort? CommentCode { get; init; }
 	
 	[JsonPropertyName("COMMENT")]
 	public string? Comment { get; init; }

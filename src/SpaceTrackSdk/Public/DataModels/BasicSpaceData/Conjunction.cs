@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using SpaceTrackSdk.Internal.Attributes;
 using SpaceTrackSdk.Internal.Serialisation.Converters;
 
 namespace SpaceTrackSdk.Public.DataModels.BasicSpaceData;
@@ -7,14 +8,11 @@ public record Conjunction
 {
 	[JsonPropertyName("CDM_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public required int CdmId { get; init; }
-
-	[JsonPropertyName("CREATED")]
-	[JsonConverter(typeof(DateTimeConverter.Complex.NotNullableConverter))]
-	public required DateTime Created { get; init; }
+	public required uint CdmId { get; init; }
 
 	[JsonPropertyName("EMERGENCY_REPORTABLE")]
 	[JsonConverter(typeof(YesNoBoolConverter.NotNullableConverter))]
+	[ModelDefinitionTypeOverride(typeof(bool))]
 	public required bool IsEmergencyReportable { get; init; }
 
 	[JsonPropertyName("SAT_1_NAME")]
@@ -28,6 +26,7 @@ public record Conjunction
 
 	[JsonPropertyName("SAT_1_EXCL_VOL")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	[ModelDefinitionTypeOverride(typeof(float))]
 	public required float Satellite1ExclusionVolume { get; init; }
 
 	[JsonPropertyName("SAT_2_NAME")]
@@ -41,6 +40,7 @@ public record Conjunction
 
 	[JsonPropertyName("SAT_2_EXCL_VOL")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	[ModelDefinitionTypeOverride(typeof(float))]
 	public required float Satellite2ExclusionVolume { get; init; }
 
 	[JsonPropertyName("TCA")]
@@ -56,10 +56,14 @@ public record Conjunction
 
 	[JsonPropertyName("SAT_1_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? Satellite1Id { get; init; }
+	public uint? Satellite1Id { get; init; }
 
 	[JsonPropertyName("SAT_2_ID")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-	public int? Satellite2Id { get; init; }
+	public uint? Satellite2Id { get; init; }
+	
+	[JsonPropertyName("CREATED")]
+	[JsonConverter(typeof(DateTimeConverter.Complex.NullableConverter))]
+	public DateTime? Created { get; init; }
 
 }

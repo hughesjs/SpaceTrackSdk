@@ -22,6 +22,115 @@ public class SatCatChangeSerialisationTests: SerialisationTestBase<SatCatChange>
 										}
 										""";
 
+	protected override string ModelDef => """
+											[
+											    {
+											        "Field": "NORAD_CAT_ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "OBJECT_NUMBER",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CURRENT_NAME",
+											        "Type": "char(25)",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PREVIOUS_NAME",
+											        "Type": "char(25)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CURRENT_INTLDES",
+											        "Type": "char(12)",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PREVIOUS_INTLDES",
+											        "Type": "char(12)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CURRENT_COUNTRY",
+											        "Type": "char(6)",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PREVIOUS_COUNTRY",
+											        "Type": "char(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CURRENT_LAUNCH",
+											        "Type": "date",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PREVIOUS_LAUNCH",
+											        "Type": "date",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CURRENT_DECAY",
+											        "Type": "date",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "PREVIOUS_DECAY",
+											        "Type": "date",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "CHANGE_MADE",
+											        "Type": "datetime",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    }
+											]
+											""";
+
 	protected override SatCatChange DataObject => new()
 	{
 		NoradCatId = 42077,
@@ -32,9 +141,9 @@ public class SatCatChangeSerialisationTests: SerialisationTestBase<SatCatChange>
 		PreviousInternationalDesignation = "2017-012C",
 		CurrentCountry = "PRC",
 		PreviousCountry = "PRC",
-		CurrentLaunch = new DateTime(2017,3,2),
-		PreviousLaunch = new DateTime(2017,3,2),
-		CurrentDecay = new DateTime(2017,5,21),
+		CurrentLaunch = new DateOnly(2017,3,2),
+		PreviousLaunch = new DateOnly(2017,3,2),
+		CurrentDecay = new DateOnly(2017,5,21),
 		PreviousDecay = null,
 		ChangeMade = new DateTime(2017,5,23,15,29,53)
 	};

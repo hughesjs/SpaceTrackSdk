@@ -23,6 +23,107 @@ public class BoxScoreSerialisationTests: SerialisationTestBase<BoxScore>
 											}
 											""";
 
+	protected override string ModelDef => """
+											[
+											    {
+											        "Field": "COUNTRY",
+											        "Type": "varchar(100)",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "SPADOC_CD",
+											        "Type": "varchar(6)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ORBITAL_TBA",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ORBITAL_PAYLOAD_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ORBITAL_ROCKET_BODY_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ORBITAL_DEBRIS_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ORBITAL_TOTAL_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DECAYED_PAYLOAD_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DECAYED_ROCKET_BODY_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DECAYED_DEBRIS_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DECAYED_TOTAL_COUNT",
+											        "Type": "decimal(23,0)",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "COUNTRY_TOTAL",
+											        "Type": "bigint(21)",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    }
+											]
+											""";
+
 	protected override BoxScore DataObject => new()
 	{
 		Country = "ARAB SATELLITE COMMUNICATIONS ORGANIZATION",

@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using SpaceTrackSdk.Public.DataModels.BasicSpaceData;
+using SpaceTrackSdk.Public.DataModels.Enums;
 
 namespace SpaceTrackSdk.Tests.Serialisation.DataModels.BasicSpaceData;
 
@@ -25,6 +26,123 @@ public class TrackingAndImpactPredictionSerialisationTests: SerialisationTestBas
 										}
 										""";
 
+	protected override string ModelDef => """
+											[
+											    {
+											        "Field": "NORAD_CAT_ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "MSG_EPOCH",
+											        "Type": "datetime",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0001-01-01 00:00:00",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "INSERT_EPOCH",
+											        "Type": "datetime",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0001-01-01 00:00:00",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DECAY_EPOCH",
+											        "Type": "datetime",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0001-01-01 00:00:00",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "WINDOW",
+											        "Type": "mediumint(3) unsigned",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "REV",
+											        "Type": "mediumint(8) unsigned",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "DIRECTION",
+											        "Type": "enum('ascending','descending')",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "LAT",
+											        "Type": "float",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "LON",
+											        "Type": "float",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "INCL",
+											        "Type": "float",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "NEXT_REPORT",
+											        "Type": "mediumint(3) unsigned",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "ID",
+											        "Type": "int(10) unsigned",
+											        "Null": "NO",
+											        "Key": "",
+											        "Default": "0",
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "HIGH_INTEREST",
+											        "Type": "enum('Y','N')",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    },
+											    {
+											        "Field": "OBJECT_NUMBER",
+											        "Type": "int(10) unsigned",
+											        "Null": "YES",
+											        "Key": "",
+											        "Default": null,
+											        "Extra": ""
+											    }
+											]
+											""";
+
 	protected override TrackingAndImpactPrediction DataObject => new()
 	{
 		NoradCatId = 60,
@@ -33,7 +151,7 @@ public class TrackingAndImpactPredictionSerialisationTests: SerialisationTestBas
 		DecayEpoch = new(2012,3,28,1,14,0),
 		Window = 14,
 		Revolutions = 58623,
-		Direction = "descending",
+		Direction = Direction.Descending,
 		Latitude = -16.8f,
 		Longitude = 286.8f,
 		Inclination = 49.9f,

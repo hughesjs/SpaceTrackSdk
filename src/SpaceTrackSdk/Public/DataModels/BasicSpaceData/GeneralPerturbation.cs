@@ -1,10 +1,13 @@
 using System.Text.Json.Serialization;
-using SpaceTrackSdk.Internal.Serialisation.Converters;
 
 namespace SpaceTrackSdk.Public.DataModels.BasicSpaceData;
 
 public record GeneralPerturbation
 {
+	[JsonPropertyName("GP_ID")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	public required uint Id { get; init; }
+	
 	[JsonPropertyName("CCSDS_OMM_VERS")]
     public required string CcsdsOrbitDataMessageVersion { get; init; }
 
@@ -41,15 +44,10 @@ public record GeneralPerturbation
     [JsonPropertyName("OBJECT_TYPE")]
     public required string ObjectType { get; init; }
     
-    [JsonPropertyName("FILE")]
-    public required string File { get; init; }
-
     [JsonPropertyName("CREATION_DATE")]
-    [JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
     public DateTime? CreationDate { get; init; }
 
     [JsonPropertyName("EPOCH")]
-    [JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
     public DateTime? Epoch { get; init; }
 
     [JsonPropertyName("MEAN_MOTION")]
@@ -102,7 +100,7 @@ public record GeneralPerturbation
 
     [JsonPropertyName("SEMIMAJOR_AXIS")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public decimal? SemimajorAxis { get; init; }
+    public decimal? SemiMajorAxis { get; init; }
 
     [JsonPropertyName("PERIOD")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
@@ -123,6 +121,34 @@ public record GeneralPerturbation
     [JsonPropertyName("R_P")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
     public decimal? RadiusPerigee { get; init; }
+    
+    [JsonPropertyName("RCS_SIZE")]
+    public string? RadarCrossSectionSize { get; init; }
+    
+    [JsonPropertyName("COUNTRY_CODE")]
+    public string? CountryCode { get; init; }
+    
+    [JsonPropertyName("LAUNCH_DATE")]
+    public DateTime? LaunchDate { get; init; }
+    
+    [JsonPropertyName("SITE")]
+    public string? Site { get; init; }
+    
+    [JsonPropertyName("DECAY_DATE")]
+    public DateTime? DecayDate { get; init; }
+
+    [JsonPropertyName("FILE")]
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	public ulong? File { get; init; }
+
+	[JsonPropertyName("TLE_LINE0")]
+	public string? TwoLineElementLine0 { get; init; }
+	
+	[JsonPropertyName("TLE_LINE1")]
+	public string? TwoLineElementLine1 { get; init; }
+	
+	[JsonPropertyName("TLE_LINE2")]
+	public string? TwoLineElementLine2 { get; init; }
 
 
 }

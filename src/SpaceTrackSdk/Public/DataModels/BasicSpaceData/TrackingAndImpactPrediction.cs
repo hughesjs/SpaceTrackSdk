@@ -49,6 +49,7 @@ public record TrackingAndImpactPrediction
 	public required int Id { get; init; }
 
 	[JsonPropertyName("HIGH_INTEREST")]
+	[JsonConverter(typeof(YesNoBoolConverter.NotNullableConverter))]
 	public required bool IsHighInterest { get; init; }
 	
 	[JsonPropertyName("NORAD_CAT_ID")]

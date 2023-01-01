@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using SpaceTrackSdk.Internal.Serialisation.Converters;
 using SpaceTrackSdk.Public.DataModels.Enums;
 
 namespace SpaceTrackSdk.Public.DataModels.BasicSpaceData;
@@ -9,9 +10,10 @@ public class Decay
 	public required string Source { get; init; }
 
 	[JsonPropertyName("MSG_TYPE")]
-	public required string MsgType { get; init; }
+	public required string MessageType { get; init; }
 
 	[JsonPropertyName("PRECEDENCE")]
+	[JsonConverter(typeof(JsonStringEnumConverter))]
 	public required Precendence Precedence { get; init; }
 	
 	[JsonPropertyName("COUNTRY")]
@@ -27,21 +29,26 @@ public class Decay
 	public required string ObjectId { get; init; }
 
 	[JsonPropertyName("RCS")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public required int RadarCrossSection { get; init; }
 
 	[JsonPropertyName("RCS_SIZE")]
 	public string? RadarCrossSectionSize { get; init; }
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public int? NoradCatId { get; init; }
 
 	[JsonPropertyName("OBJECT_NUMBER")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public int? ObjectNumber { get; init; }
 
 	[JsonPropertyName("MSG_EPOCH")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? MessageEpoch { get; init; }
 
 	[JsonPropertyName("DECAY_EPOCH")]
-	public string? DecayEpoch { get; init; }
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
+	public DateTime? DecayEpoch { get; init; }
 
 }

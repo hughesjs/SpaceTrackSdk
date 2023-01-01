@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using SpaceTrackSdk.Internal.Serialisation.Converters;
 
 namespace SpaceTrackSdk.Public.DataModels.BasicSpaceData;
 
@@ -23,23 +24,30 @@ public record SatCatChange
 	public required string PreviousCountry { get; init; }
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public uint? NoradCatId { get; init; }
 
 	[JsonPropertyName("OBJECT_NUMBER")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public uint? ObjectNumber { get; init; }
 
 	[JsonPropertyName("CURRENT_LAUNCH")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? CurrentLaunch { get; init; }
 
 	[JsonPropertyName("PREVIOUS_LAUNCH")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? PreviousLaunch { get; init; }
 
 	[JsonPropertyName("CURRENT_DECAY")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? CurrentDecay { get; init; }
 
 	[JsonPropertyName("PREVIOUS_DECAY")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? PreviousDecay { get; init; }
 
 	[JsonPropertyName("CHANGE_MADE")]
+	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? ChangeMade { get; init; }
 }

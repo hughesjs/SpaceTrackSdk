@@ -10,22 +10,22 @@ public record SatCatEntry
 
 	[JsonPropertyName("OBJECT_TYPE")]
 	public required string ObjectType { get; init; }
+	
+	[JsonPropertyName("OBJECT_ID")]
+	public required string ObjectId { get; init; }
 
 	[JsonPropertyName("SATNAME")]
 	public required string SatelliteName { get; init; }
 
 	[JsonPropertyName("COUNTRY")]
 	public required string Country { get; init; }
-	
-	[JsonPropertyName("COMMENT")]
-	public required string Comment { get; init; }
+
 	
 	[JsonPropertyName("RCSVALUE")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public required int RadarCrossSectionValue { get; init; }
 
 	[JsonPropertyName("RCS_SIZE")]
-	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public required string RadarCrossSectionSize { get; init; }
 
 	[JsonPropertyName("FILE")]
@@ -36,7 +36,7 @@ public record SatCatEntry
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public required ushort LaunchYear { get; init; }
 
-	[JsonPropertyName("LAUNCH_NUMBER")]
+	[JsonPropertyName("LAUNCH_NUM")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public required ushort LaunchNumber { get; init; }
 
@@ -44,6 +44,7 @@ public record SatCatEntry
 	public required string LaunchPiece { get; init; }
 
 	[JsonPropertyName("CURRENT")]
+	[JsonConverter(typeof(YesNoBoolConverter.NotNullableConverter))]
 	public required bool IsCurrent { get; init; }
 
 	[JsonPropertyName("OBJECT_NAME")]
@@ -53,14 +54,13 @@ public record SatCatEntry
 	public required string LaunchSite { get; init; }
 	
 	[JsonPropertyName("NORAD_CAT_ID")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public int? NoradCatalogId { get; init; }
 
 	[JsonPropertyName("LAUNCH")]
-	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? LaunchDate { get; init; }
 
 	[JsonPropertyName("DECAY")]
-	[JsonConverter(typeof(DateTimeConverter.Simple.NullableConverter))]
 	public DateTime? DecayDate { get; init; }
 
 	[JsonPropertyName("PERIOD")]
@@ -78,7 +78,14 @@ public record SatCatEntry
 	[JsonPropertyName("PERIGEE")]
 	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
 	public ulong? Perigee { get; init; }
+	
+	[JsonPropertyName("OBJECT_NUMBER")]
+	[JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+	public uint? ObjectNumber { get; init; }
 
 	[JsonPropertyName("COMMENTCODE")]
 	public char? CommentCode { get; init; }
+	
+	[JsonPropertyName("COMMENT")]
+	public string? Comment { get; init; }
 }

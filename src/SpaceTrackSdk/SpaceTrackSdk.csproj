@@ -14,7 +14,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <InternalsVisibleTo Include="SpaceTrackSdk.Tests"/>
+        <InternalsVisibleTo Include="SpaceTrackSdk.Tests" />
     </ItemGroup>
 
 </Project>

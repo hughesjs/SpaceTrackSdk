@@ -1,6 +1,6 @@
 using SpaceTrackSdk.Public.Clients;
 
-namespace SpaceTrackSdk.Tests.ConventionTests;
+namespace SpaceTrackSdk.Tests.Conventions;
 
 public class PublicsArePublicTests
 {

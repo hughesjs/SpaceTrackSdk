@@ -1,6 +1,6 @@
 using SpaceTrackSdk.Internal.Clients;
 
-namespace SpaceTrackSdk.Tests.ConventionTests;
+namespace SpaceTrackSdk.Tests.Conventions;
 
 public class InternalsAreNotPublicTests
 {

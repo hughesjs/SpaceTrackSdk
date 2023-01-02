@@ -18,6 +18,9 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Run tests
+      env:
+        SpaceTrackPassword: ${{ secrets.SpaceTrackPassword }}
+        SpaceTrackUsername: ${{ secrets.SpaceTrackUsername }}
       run: dotnet test --logger GitHubActions ./src/SpaceTrackSdk.sln
 
   semantic-release:

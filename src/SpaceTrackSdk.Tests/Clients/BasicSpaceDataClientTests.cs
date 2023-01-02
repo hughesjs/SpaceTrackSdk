@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using SpaceTrackSdk.Internal.Auth;
 using SpaceTrackSdk.Internal.Clients;
@@ -11,32 +12,11 @@ namespace SpaceTrackSdk.Tests.Clients;
 
 public class BasicSpaceDataClientTests: IClassFixture<ClientTestFixture>
 {
-	
-	private const string TestApiUrl = "https://for-testing-only.space-track.org";
 	private readonly IBasicSpaceDataClient _client;
 
 	public BasicSpaceDataClientTests(ClientTestFixture clientTestFixture)
 	{
-		SpaceTrackSdkOptions options = new()
-		{
-			ApiUrl = TestApiUrl,
-			AuthEndpoint = "/ajaxauth/login",
-			Password = Environment.GetEnvironmentVariable("SpaceTrackSdkOptions__Password")!,
-			Username = Environment.GetEnvironmentVariable("SpaceTrackSdkOptions__Username")!
-		};
-		
-		IOptions<SpaceTrackSdkOptions> opt = Options.Create(options);
-		
-		AuthCookieHandler cookieHandler = new((AuthCookieJar)clientTestFixture.CookieJar, opt);
-
-		cookieHandler.InnerHandler = new HttpClientHandler();
-
-		HttpClient innerClient = new(cookieHandler)
-		{
-			BaseAddress = new($"{TestApiUrl}")
-		};
-
-		_client = new BasicSpaceDataClient(innerClient);
+		_client = clientTestFixture.ServiceProvider.GetRequiredService<IBasicSpaceDataClient>();
 	}
 
 	[Fact]

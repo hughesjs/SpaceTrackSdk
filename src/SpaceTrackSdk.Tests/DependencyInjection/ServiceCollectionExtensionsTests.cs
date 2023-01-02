@@ -57,5 +57,4 @@ public class ServiceCollectionExtensionsTests
 		
 		jarOne.ShouldBe(jarTwo);
 	}
-	
 }

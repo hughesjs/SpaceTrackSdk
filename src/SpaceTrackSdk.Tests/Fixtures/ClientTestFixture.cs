@@ -1,15 +1,45 @@
 using JetBrains.Annotations;
-using SpaceTrackSdk.Internal.Auth;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
+using SpaceTrackSdk.Internal.Clients;
+using SpaceTrackSdk.Internal.Clients.HttpMessageHandlers;
+using SpaceTrackSdk.Public.Clients;
+using SpaceTrackSdk.Public.DependencyInjection;
+using SpaceTrackSdk.Public.Options;
+using SpaceTrackSdk.Tests.Stubs;
 
 namespace SpaceTrackSdk.Tests.Fixtures;
 
 [UsedImplicitly]
 public class ClientTestFixture
 {
+	public ServiceProvider ServiceProvider { get; }
+
 	public ClientTestFixture()
 	{
-		CookieJar = new AuthCookieJar();
-	}
+		bool useRealApi = Environment.GetEnvironmentVariable("TEST_REAL_API") is not null;
+		
+		IConfigurationBuilder configBuilder = new ConfigurationBuilder();
+		configBuilder.AddEnvironmentVariables();
+		IConfigurationRoot config = configBuilder.Build();
+		
+		ServiceCollection services = new();
+		services.AddSpaceTrackServices(config);
 
-	public object CookieJar { get; } // this is a mess, but I can't use internals with IClassFixture AFAICT
+		if (!useRealApi)
+		{
+			services.RemoveAll(typeof(IBasicSpaceDataClient));
+
+			services.AddTransient<HttpHandlerStub>();
+			services.AddHttpClient<IBasicSpaceDataClient, BasicSpaceDataClient>((sp, c) =>
+			{
+				SpaceTrackSdkOptions options = sp.GetRequiredService<IOptions<SpaceTrackSdkOptions>>().Value;
+				c.BaseAddress = new(options.ApiUrl);
+			}).AddHttpMessageHandler<AuthCookieHandler>().ConfigurePrimaryHttpMessageHandler<HttpHandlerStub>();
+		}
+
+		ServiceProvider = services.BuildServiceProvider();
+	}
 }

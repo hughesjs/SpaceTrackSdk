@@ -42,6 +42,14 @@ public class ServiceCollectionExtensionsTests
 	}
 
 	[Fact]
+	public void ResolvedClientActuallyWorks()
+	{
+		IBasicSpaceDataClient service = _serviceProvider.GetRequiredService<IBasicSpaceDataClient>();
+
+		service.Announcements.Get().ShouldNotBeNull();
+	}
+
+	[Fact]
 	public void CookieJarIsASingleton()
 	{
 		AuthCookieJar jarOne = _serviceProvider.GetRequiredService<AuthCookieJar>();

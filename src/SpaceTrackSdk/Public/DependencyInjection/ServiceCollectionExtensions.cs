@@ -21,20 +21,21 @@ public static class ServiceCollectionExtensions
 		services.Configure<SpaceTrackSdkOptions>(optionsSect);
 
 		services.AddSingleton<AuthCookieJar>();
+
+		services.AddTransient<HttpClientHandler>();
 		
 		services.AddTransient<AuthCookieHandler>(sp =>
 		{
 			AuthCookieJar cookieJar = sp.GetRequiredService<AuthCookieJar>();
 			IOptions<SpaceTrackSdkOptions> opt = sp.GetRequiredService<IOptions<SpaceTrackSdkOptions>>();
-			HttpClientHandler inner = new();
-			AuthCookieHandler handler = new(inner, cookieJar, opt);
+			AuthCookieHandler handler = new(cookieJar, opt);
 			return handler;
 		});
 
 		services.AddHttpClient<IBasicSpaceDataClient, BasicSpaceDataClient>(c =>
 		{
 			c.BaseAddress = new(options.ApiUrl);
-		}).AddHttpMessageHandler<AuthCookieHandler>();
+		}).AddHttpMessageHandler<AuthCookieHandler>().ConfigurePrimaryHttpMessageHandler<HttpClientHandler>();
 
 		return services;
 	}

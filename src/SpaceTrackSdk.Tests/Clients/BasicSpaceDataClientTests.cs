@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Options;
 using SpaceTrackSdk.Internal.Auth;
@@ -18,6 +19,12 @@ public class BasicSpaceDataClientTests: IClassFixture<ClientTestFixture>
 
 	public BasicSpaceDataClientTests(ClientTestFixture clientTestFixture)
 	{
+		Console.WriteLine("AGH!");
+		foreach (DictionaryEntry environmentVariable in Environment.GetEnvironmentVariables())
+		{
+			Console.WriteLine($"{environmentVariable.Key}={environmentVariable.Value}");
+		}
+
 		SpaceTrackSdkOptions options = new()
 		{
 			ApiUrl = TestApiUrl,

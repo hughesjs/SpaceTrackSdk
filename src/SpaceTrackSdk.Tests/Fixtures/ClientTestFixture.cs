@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using SpaceTrackSdk.Internal.Auth;
 
 namespace SpaceTrackSdk.Tests.Fixtures;
 
+[UsedImplicitly]
 public class ClientTestFixture
 {
 	public ClientTestFixture()

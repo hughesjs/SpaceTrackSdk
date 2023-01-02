@@ -40,7 +40,7 @@ ServiceCollection services = new();
 services.AddSpaceTrackServices(config);
 IServiceProvider provider = services.BuildServiceProvider();
 
-IPgfPlotSourceGenerator service = provider.GetRequiredService<IBasicSpaceDataClient>();
+IBasicSpaceDataClient service = provider.GetRequiredService<IBasicSpaceDataClient>();
 ```
 
 ### Fetching Data

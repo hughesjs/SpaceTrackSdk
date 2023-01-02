@@ -5,21 +5,19 @@ namespace SpaceTrackSdk.Internal.Clients;
 
 internal class BasicSpaceDataClient: IBasicSpaceDataClient
 {
-	public const string BasicSpaceDataEndpoint = "/basicspacedata";
-	private const string ClassQueryPrefix = "/class/query";
-	public BasicSpaceDataClient(HttpClient client)
-	{
-		Announcements = new HttpClientAdapter<Announcement>(client, $"{ClassQueryPrefix}/announcement");
-		BoxScores = new HttpClientAdapter<BoxScore>(client, $"{ClassQueryPrefix}/boxscore");
-		Conjunctions = new HttpClientAdapter<Conjunction>(client, $"{ClassQueryPrefix}/cdm_public");
-		Decays = new HttpClientAdapter<Decay>(client, $"{ClassQueryPrefix}/decay");
-		GeneralPerturbations = new HttpClientAdapter<GeneralPerturbation>(client, $"{ClassQueryPrefix}/gp");
-		GeneralPerturbationHistory = new HttpClientAdapter<GeneralPerturbation>(client, $"{ClassQueryPrefix}/gp_history");
-		LaunchSites = new HttpClientAdapter<LaunchSite>(client, $"{ClassQueryPrefix}/launch_site");
-		SatCatChanges = new HttpClientAdapter<SatCatChange>(client, $"{ClassQueryPrefix}/satcat_change");
-		SatCatEntries = new HttpClientAdapter<SatCatEntry>(client, $"{ClassQueryPrefix}/satcat");
-		SatCatDebut = new HttpClientAdapter<SatCatEntry>(client, $"{ClassQueryPrefix}/satcat_debut");
-		TrackingAndImpactPredictions = new HttpClientAdapter<TrackingAndImpactPrediction>(client, $"{ClassQueryPrefix}/tip");
+	public const string BasicSpaceDataEndpoint = "/basicspacedata/query/class/";
+	public BasicSpaceDataClient(HttpClient client) {
+		Announcements = new HttpClientAdapter<Announcement>(client, $"{BasicSpaceDataEndpoint}announcement");
+		BoxScores = new HttpClientAdapter<BoxScore>(client, $"{BasicSpaceDataEndpoint}boxscore");
+		Conjunctions = new HttpClientAdapter<Conjunction>(client, $"{BasicSpaceDataEndpoint}cdm_public");
+		Decays = new HttpClientAdapter<Decay>(client, $"{BasicSpaceDataEndpoint}decay");
+		GeneralPerturbations = new HttpClientAdapter<GeneralPerturbation>(client, $"{BasicSpaceDataEndpoint}gp");
+		GeneralPerturbationHistory = new HttpClientAdapter<GeneralPerturbation>(client, $"{BasicSpaceDataEndpoint}gp_history");
+		LaunchSites = new HttpClientAdapter<LaunchSite>(client, $"{BasicSpaceDataEndpoint}launch_site");
+		SatCatChanges = new HttpClientAdapter<SatCatChange>(client, $"{BasicSpaceDataEndpoint}satcat_change");
+		SatCatEntries = new HttpClientAdapter<SatCatEntry>(client, $"{BasicSpaceDataEndpoint}satcat");
+		SatCatDebuts = new HttpClientAdapter<SatCatEntry>(client, $"{BasicSpaceDataEndpoint}satcat_debut");
+		TrackingAndImpactPredictions = new HttpClientAdapter<TrackingAndImpactPrediction>(client, $"{BasicSpaceDataEndpoint}tip");
 	}
 
 	public IClientAdapter<Announcement> Announcements { get; }
@@ -31,6 +29,6 @@ internal class BasicSpaceDataClient: IBasicSpaceDataClient
 	public IClientAdapter<LaunchSite> LaunchSites { get; }
 	public IClientAdapter<SatCatChange> SatCatChanges { get; }
 	public IClientAdapter<SatCatEntry> SatCatEntries { get; }
-	public IClientAdapter<SatCatEntry> SatCatDebut { get; }
+	public IClientAdapter<SatCatEntry> SatCatDebuts { get; }
 	public IClientAdapter<TrackingAndImpactPrediction> TrackingAndImpactPredictions { get; }
 }

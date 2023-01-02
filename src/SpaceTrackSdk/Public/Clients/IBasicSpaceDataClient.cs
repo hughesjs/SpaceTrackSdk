@@ -13,6 +13,6 @@ public interface IBasicSpaceDataClient
 	public IClientAdapter<LaunchSite> LaunchSites { get; } 
 	public IClientAdapter<SatCatChange> SatCatChanges { get; }
 	public IClientAdapter<SatCatEntry> SatCatEntries { get; }
-	public IClientAdapter<SatCatEntry> SatCatDebut { get; }
+	public IClientAdapter<SatCatEntry> SatCatDebuts { get; }
 	public IClientAdapter<TrackingAndImpactPrediction> TrackingAndImpactPredictions { get; }
 }

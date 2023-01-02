@@ -14,7 +14,11 @@ internal class HttpClientAdapter<T>: IClientAdapter<T>
 		_endpoint = endpoint;
 	}
 
-	public async Task<T?> Get() => await _client.GetFromJsonAsync<T>($"{_endpoint}/limit/1");
+	public async Task<T?> Get(string predicates)
+	{
+		T[]? arrayOfOne = await _client.GetFromJsonAsync<T[]>($"{_endpoint}/limit/1/{predicates}");
+		return arrayOfOne is null ? default : arrayOfOne.Single();
+	}
 	
-	public async Task<List<T>?> GetMany() => await _client.GetFromJsonAsync<List<T>>(_endpoint);
+	public async Task<List<T>?> GetMany(string predicates) => await _client.GetFromJsonAsync<List<T>>($"{_endpoint}/{predicates}");
 }

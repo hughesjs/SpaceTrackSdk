@@ -8,9 +8,12 @@ internal class AuthCookieJar
 
 	public void UpdateCookie(string setCookieHeader)
 	{
-		Dictionary<string, string?> cookieComponents = ParseComponents(setCookieHeader);
+		if (Cookie is null || Cookie.Expired)
+		{
+			Dictionary<string, string?> cookieComponents = ParseComponents(setCookieHeader);
 
-		Cookie = MakeCookie(cookieComponents);
+			Cookie = MakeCookie(cookieComponents);
+		}
 	}
 
 	private Cookie MakeCookie(Dictionary<string, string?> cookieComponents)

@@ -10,9 +10,8 @@ internal class AuthCookieHandler : DelegatingHandler
 	private readonly AuthCookieJar _cookieJar;
 	private readonly IOptions<SpaceTrackSdkOptions> _options;
 
-	public AuthCookieHandler(HttpMessageHandler innerHandler, AuthCookieJar cookieJar, IOptions<SpaceTrackSdkOptions> options)
+	public AuthCookieHandler(AuthCookieJar cookieJar, IOptions<SpaceTrackSdkOptions> options)
 	{
-		InnerHandler = innerHandler;
 		_cookieJar = cookieJar;
 		_options = options;
 	}

@@ -18,6 +18,8 @@ jobs:
         dotnet-version: 7.0.x
     - name: Run tests
       env:
-        SPACE_TRACK_PASSWORD: ${{ secrets.SPACE_TRACK_PASSWORD }}
-        SPACE_TRACK_USERNAME: ${{ secrets.SPACE_TRACK_USERNAME }}
+        SpaceTrackSdkOptions__Password: ${{ secrets.SPACE_TRACK_PASSWORD }}
+        SpaceTrackSdkOptions__Username: ${{ secrets.SPACE_TRACK_USERNAME }}
+        SpaceTrackSdkOptions__ApiUrl: "https://for-testing-only.space-track.org/"
+        SpaceTrackSdkOptions__AuthEndpoint: "/ajaxauth/login"
       run: dotnet test --logger GitHubActions ./src/SpaceTrackSdk.sln

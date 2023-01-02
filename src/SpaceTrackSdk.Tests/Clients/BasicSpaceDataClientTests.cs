@@ -29,8 +29,8 @@ public class BasicSpaceDataClientTests: IClassFixture<ClientTestFixture>
 		{
 			ApiUrl = TestApiUrl,
 			AuthEndpoint = "/ajaxauth/login",
-			Password = Environment.GetEnvironmentVariable("SpaceTrackPassword")!,
-			Username = Environment.GetEnvironmentVariable("SpaceTrackUsername")!
+			Password = Environment.GetEnvironmentVariable("SPACE_TRACK_PASSWORD")!,
+			Username = Environment.GetEnvironmentVariable("SPACE_TRACK_USERNAME")!
 		};
 		
 		IOptions<SpaceTrackSdkOptions> opt = Options.Create(options);

@@ -14,7 +14,7 @@ public class PublicsArePublicTests
 	}
 
 
-	public static IEnumerable<object[]> PublicClassDataGenerator() => typeof(ISpaceTrackClient).Assembly.GetTypes()
+	public static IEnumerable<object[]> PublicClassDataGenerator() => typeof(IClientAdapter<>).Assembly.GetTypes()
 		.Where(t => t.Namespace != null && t.Namespace.Contains(PublicNamespaceFragment))
 		.Select(t => new object[] {t});
 }

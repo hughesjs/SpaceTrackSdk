@@ -1,9 +1,9 @@
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class Now: Operator<float?>
+public class NowOperator: Operator<float?>
 {
-	public Now(): base(null) { }
-	public Now(float value) : base(value) { }
+	public NowOperator(): base(null) { }
+	public NowOperator(float value) : base(value) { }
 
 	protected override string Opcode => "now";
 

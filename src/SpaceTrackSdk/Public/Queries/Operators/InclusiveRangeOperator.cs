@@ -1,8 +1,8 @@
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class InclusiveRange<T>: Operator<(T From,T To)>
+public class InclusiveRangeOperator<T>: Operator<(T From,T To)>
 {
-	public InclusiveRange(T from, T to) : base((from, to)) { }
+	public InclusiveRangeOperator(T from, T to) : base((from, to)) { }
 
 	protected override string Opcode => "--";
 

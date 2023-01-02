@@ -1,8 +1,8 @@
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class Or<T>: Operator<List<T>>
+public class OrOperator<T>: Operator<List<T>>
 {
-	public Or(List<T> value) : base(value) { }
+	public OrOperator(List<T> value) : base(value) { }
 
 	protected override string Opcode => ",";
 

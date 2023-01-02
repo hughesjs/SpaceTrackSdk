@@ -2,9 +2,9 @@ using SpaceTrackSdk.Public.Exceptions;
 
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class StartsWith<T>: Operator<T>
+public class StartsWithOperator<T>: Operator<T>
 {
-	public StartsWith(T value) : base(value) { }
+	public StartsWithOperator(T value) : base(value) { }
 
 	protected override string Opcode => "^";
 

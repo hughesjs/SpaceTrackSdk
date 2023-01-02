@@ -1,8 +1,8 @@
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class IsEqual<T> : Operator<T?>
+public class IsEqualOperator<T> : Operator<T?>
 {
-	public IsEqual(T? value) : base(value) { }
+	public IsEqualOperator(T? value) : base(value) { }
 
 	protected override string Opcode => string.Empty;
 }

@@ -21,6 +21,8 @@ public class ClientTestFixture
 	{
 		bool useRealApi = Environment.GetEnvironmentVariable("TEST_REAL_API") is not null;
 		
+		Console.WriteLine(useRealApi ? "Using real API" : "Using stubbed API");
+		
 		IConfigurationBuilder configBuilder = new ConfigurationBuilder();
 		configBuilder.AddEnvironmentVariables();
 		IConfigurationRoot config = configBuilder.Build();

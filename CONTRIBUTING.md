@@ -1,4 +1,4 @@
-# Contributing to X
+# Contributing to SpaceTrackSdk
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
@@ -16,21 +16,21 @@ We use github to host code, to track issues and feature requests, as well as acc
 
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow)). We actively welcome your pull requests:
 
-0. Raise an issue describing the change you're about to make and the reasoning behind it.
-1. Fork the repo and create your branch from `master`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints.
-6. Issue that pull request!
+1. Raise an issue describing the change you're about to make and the reasoning behind it.
+2. Fork the repo and create your branch from `master`.
+3. If you've added code that should be tested, add tests.
+4. If you've changed APIs, update the documentation.
+5. Ensure the test suite passes.
+6. Make sure your code lints.
+7. Issue that pull request!
 
-## Any Contributions You Make Will Be Under the MIT Software License
+## Any Contributions You Make Will Be Under the AGPL-3.0 Software License
 
-In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
+In short, when you submit code changes, your submissions are understood to be under the same [AGPL-3.0 License](http://choosealicense.com/licenses/agpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report Bugs Using Github's [issues](https://github.com/hughesjs/dotnet-6-ci-cd-template/issues)
+## Report Bugs Using Github's [issues](https://github.com/hughesjs/SpaceTrackSdk/issues)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/hughesjs/dotnet-6-ci-cd-template/issues/new); it's that easy!
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/hughesjs/SpaceTrackSdk/issues/new); it's that easy!
 
 ## Write Bug Reports with Detail, Background, and Sample Code
 

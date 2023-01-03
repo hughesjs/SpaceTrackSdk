@@ -13,5 +13,5 @@ public class OrderByPredicate: Predicate<string>
 
 	protected override string Key => "orderby";
 
-	public override string GetQueryString() => $"orderby/{Value} {(_isAscending ? "asc" : "desc")}";
+	public override string GetQueryString() => $"{Key}/{Value} {(_isAscending ? "asc" : "desc")}";
 }

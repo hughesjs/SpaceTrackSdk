@@ -5,7 +5,7 @@ namespace SpaceTrackSdk.Public.Queries.Operators;
 [UsedImplicitly]
 public abstract class Operator<T>: IQueryOperator
 {
-	protected const string DateFormat = "yy-MM-dd HH-mm-ss";
+	protected const string DateFormat = "yy-MM-dd HH:mm:ss";
 	protected T Value { get; }
 
 	public abstract string Opcode { get; }

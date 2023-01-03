@@ -32,7 +32,7 @@ public class InclusiveRangeOperatorTest: CompoundableOperatorTest
 		DateTime end = new(22, 10, 1, 11, 12, 13);
 		InclusiveRangeOperator<DateTime, DateTime> rangeOperator = new(start, end);
 		
-		rangeOperator.GetQueryString().ShouldBe("23-10-01 11-12-13--22-10-01 11-12-13");
+		rangeOperator.GetQueryString().ShouldBe("23-10-01 11:12:13--22-10-01 11:12:13");
 	}
 
 	protected override IQueryOperator SimpleOperator => new InclusiveRangeOperator<int, float>(2, 3.4f);

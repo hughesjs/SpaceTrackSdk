@@ -34,8 +34,4 @@
       <ProjectReference Include="..\SpaceTrackSdk\SpaceTrackSdk.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Queries\Predicates" />
-    </ItemGroup>
-
 </Project>

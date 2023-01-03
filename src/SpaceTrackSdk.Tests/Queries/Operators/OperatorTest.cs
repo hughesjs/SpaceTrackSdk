@@ -14,6 +14,4 @@ public abstract class OperatorTest
 	{
 		SimpleOperator.GetQueryString().ShouldBe(SimpleExpected);
 	}
-
-
 }

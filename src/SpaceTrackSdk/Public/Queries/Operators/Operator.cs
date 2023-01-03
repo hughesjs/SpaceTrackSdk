@@ -1,6 +1,6 @@
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public abstract class Operator<T>
+public abstract class Operator<T>: IQueryComponent
 {
 	protected T Value { get; }
 

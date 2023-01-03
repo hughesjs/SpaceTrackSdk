@@ -1,6 +1,6 @@
 namespace SpaceTrackSdk.Public.Queries.Predicates;
 
-public abstract class Predicate<T>: IQueryComponent
+public abstract class Predicate<T>: IPredicate
 {
 	protected readonly T Value;
 	protected abstract string Key { get; }

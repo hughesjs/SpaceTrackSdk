@@ -1,11 +1,14 @@
+using JetBrains.Annotations;
+
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
+[UsedImplicitly]
 public class NowOperator: Operator<float?>
 {
 	public NowOperator(): base(null) { }
 	public NowOperator(float value) : base(value) { }
 
-	protected override string Opcode => "now";
+	public override string Opcode => "now";
 
 	public override string GetQueryString()
 	{

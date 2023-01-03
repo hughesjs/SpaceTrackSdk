@@ -1,8 +1,11 @@
+using JetBrains.Annotations;
+
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
+[UsedImplicitly]
 public class NotEqualOperator<T>: Operator<T?>
 {
 	public NotEqualOperator(T? value) : base(value) { }
 
-	protected override string Opcode => "<>";
+	public override string Opcode => "<>";
 }

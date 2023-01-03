@@ -1,8 +1,11 @@
+using JetBrains.Annotations;
+
 namespace SpaceTrackSdk.Public.Queries.Operators;
 
-public class LikeOperator<T>: Operator<T>
+[UsedImplicitly]
+public class LikeOperator: Operator<string>
 {
-	public LikeOperator(T value) : base(value) { }
+	public LikeOperator(string value) : base(value) { }
 
-	protected override string Opcode => "~~";
+	public override string Opcode => "~~";
 }

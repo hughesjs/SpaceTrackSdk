@@ -27,6 +27,34 @@ dotnet add <csproj> package SpaceTrackSdk
 ```
 It is also available as a package from the Github Image Repo.
 
+### Authentication and Configuration
+
+By default the SDK handles the fetching of an authentication cookie for you and automatically refreshes it when it expires.
+
+However, for this to work, you need to provide the `SpaceTrackSdkOptions` to the DI container.
+
+This can be done in two ways:
+
+- Add the appropriate section to your `appsettings.config` (and then make sure you don't commit sensitive information to your repo):
+```json
+{
+  "SpaceTrackSdkOptions": {
+      "Password": "myPass",
+      "Username": "myUsername",
+      "ApiUrl": "https://space-track.org",
+      "AuthEndpoint": "ajaxauth/login"
+  }
+}
+```
+
+- Set the following environment variables:
+```sh
+SpaceTrackSdkOptions__Password="myPass"
+SpaceTrackSdkOptions__Username="myUsername"
+SpaceTrackSdkOptions__ApiUrl="https://space-track.org"
+SpaceTrackSdkOptions__AuthEndpoint="ajaxauth/login"
+```
+
 ### Configuring DI
 
 Currently, the SDK is designed in such a way that it plugs in via `Microsoft.DependencyInjection`. If there is a big desire for this to change in the future, I might reconsider this.

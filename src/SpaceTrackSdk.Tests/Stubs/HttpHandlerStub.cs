@@ -31,26 +31,23 @@ public class HttpHandlerStub: DelegatingHandler
 			Match limitMatch = _limitRegex.Match(path);
 			limit = int.Parse(limitMatch.Groups["limit"].Value);
 		}
-		
+
 		return stubRoute switch
-		{
-			"/ajaxauth/login" => CookieResponse(),
-			"announcement" => ObjectResponse<Announcement>(limit),
-			"boxscore" => ObjectResponse<BoxScore>(limit),
-			"cdm_public" => ObjectResponse<Conjunction>(limit),
-			"decay" => ObjectResponse<Decay>(limit),
-			"gp_history" => ObjectResponse<GeneralPerturbation>(limit),
-			"gp" => ObjectResponse<GeneralPerturbation>(limit),
-			"launch_site" => ObjectResponse<LaunchSite>(limit),
-			"satcat" => ObjectResponse<SatCatEntry>(limit),
-			"satcat_debut" => ObjectResponse<SatCatEntry>(limit),
-			"satcat_change" => ObjectResponse<SatCatChange>(limit),
-			"tip" => ObjectResponse<TrackingAndImpactPrediction>(limit),
-			_ => throw new("Unstubbed Endpoint")
-		}
-		
-		;
-		return null;
+			   {
+				   "/ajaxauth/login" => CookieResponse(),
+				   "announcement"    => ObjectResponse<Announcement>(limit),
+				   "boxscore"        => ObjectResponse<BoxScore>(limit),
+				   "cdm_public"      => ObjectResponse<Conjunction>(limit),
+				   "decay"           => ObjectResponse<Decay>(limit),
+				   "gp_history"      => ObjectResponse<GeneralPerturbation>(limit),
+				   "gp"              => ObjectResponse<GeneralPerturbation>(limit),
+				   "launch_site"     => ObjectResponse<LaunchSite>(limit),
+				   "satcat"          => ObjectResponse<SatCatEntry>(limit),
+				   "satcat_debut"    => ObjectResponse<SatCatEntry>(limit),
+				   "satcat_change"   => ObjectResponse<SatCatChange>(limit),
+				   "tip"             => ObjectResponse<TrackingAndImpactPrediction>(limit),
+				   _                 => throw new("Unstubbed Endpoint")
+			   };
 	}
 
 	private Task<HttpResponseMessage> ObjectResponse<T>(int limit)

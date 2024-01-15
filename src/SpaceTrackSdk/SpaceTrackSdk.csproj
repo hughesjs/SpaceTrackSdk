@@ -20,9 +20,9 @@
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
     </ItemGroup>
 

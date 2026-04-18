@@ -25,6 +25,16 @@ public class ClientTestFixture
 		
 		IConfigurationBuilder configBuilder = new ConfigurationBuilder();
 		configBuilder.AddEnvironmentVariables();
+		if (!useRealApi)
+		{
+			configBuilder.AddInMemoryCollection(new Dictionary<string, string?>
+			{
+				["SpaceTrackSdkOptions:Username"]     = "stub",
+				["SpaceTrackSdkOptions:Password"]     = "stub",
+				["SpaceTrackSdkOptions:ApiUrl"]       = "http://stub.local",
+				["SpaceTrackSdkOptions:AuthEndpoint"] = "/ajaxauth/login",
+			});
+		}
 		IConfigurationRoot config = configBuilder.Build();
 		
 		ServiceCollection services = new();

@@ -18,7 +18,7 @@ public abstract class Operator<T>: IQueryOperator
 	{
 		IQueryOperator? component = Value as IQueryOperator;
 
-		string? value = Value.ToString();
+		string? value = Value?.ToString();
 		if (component is not null)
 		{
 			value = component.GetQueryString();

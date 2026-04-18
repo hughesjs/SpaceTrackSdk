@@ -13,7 +13,13 @@ public class ServiceCollectionExtensionsTests
 	public ServiceCollectionExtensionsTests()
 	{
 		IConfigurationBuilder configBuilder = new ConfigurationBuilder();
-		configBuilder.AddEnvironmentVariables();
+		configBuilder.AddInMemoryCollection(new Dictionary<string, string?>
+		{
+			["SpaceTrackSdkOptions:Username"]     = "stub",
+			["SpaceTrackSdkOptions:Password"]     = "stub",
+			["SpaceTrackSdkOptions:ApiUrl"]       = "http://stub.local",
+			["SpaceTrackSdkOptions:AuthEndpoint"] = "/ajaxauth/login",
+		});
 		IConfigurationRoot config = configBuilder.Build();
 		
 		ServiceCollection services = new();

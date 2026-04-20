@@ -55,7 +55,7 @@ jobs:
     - name: Create Nuget Package
       run: dotnet build -c Release ./src/SpaceTrackSdk/SpaceTrackSdk.csproj && dotnet pack -c Release -p:PackageVersion=${{ steps.tag_version.outputs.new_version }} -o . ./src/SpaceTrackSdk/SpaceTrackSdk.csproj
     - name: Upload Package for Publishing
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: PackedLib
         path: ./*.nupkg
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download built project  
-      uses: actions/download-artifact@v7
+      uses: actions/download-artifact@v8
       with:
         name: PackedLib
     - name: Setup .NET
@@ -88,7 +88,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download built project  
-      uses: actions/download-artifact@v7
+      uses: actions/download-artifact@v8
       with:
         name: PackedLib
     - name: Setup .NET
